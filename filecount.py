@@ -10,7 +10,7 @@ def get_dir_size(path='.'):
 					total += entry.stat().st_size
 				elif entry.is_dir():
 					total += get_dir_size(entry.path)
-	except PermissionError as err:
+	except OSError as err:
 		print(err)
 		pass
 	return total
